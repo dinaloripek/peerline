@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Peerline — Token Launch Radar</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="masthead">
+  <div class="brand">
+    <div class="sweep" aria-hidden="true"></div>
+    <div>
+      <h1>Peerline <span class="thin">/ token launch radar</span></h1>
+      <p class="tagline">Every protocol in the snapshot that records no token yet, priced by the live protocols it resembles — and a farm plan for each one.</p>
+    </div>
+  </div>
+  <div class="mast-stats" id="mastStats"></div>
+</header>
+
+<section class="model-strip" id="modelStrip"></section>
+
+<nav class="controls" aria-label="Board controls">
+  <label class="ctl grow">Search
+    <input id="q" type="search" placeholder="Protocol name or slug" autocomplete="off">
+  </label>
+  <label class="ctl">Category
+    <select id="cat"></select>
+  </label>
+  <label class="ctl">Chain
+    <select id="chain"></select>
+  </label>
+  <div class="ctl">Tier
+    <div class="seg" id="tierSeg">
+      <button data-tier="all" class="on">All rows</button>
+      <button data-tier="watchlist">Watchlist</button>
+      <button data-tier="early">Early finds</button>
+    </div>
+  </div>
+  <label class="ctl">Sort
+    <select id="sort">
+      <option value="rank">Implied value (rank)</option>
+      <option value="tvl">TVL, high to low</option>
+      <option value="growth">7d growth, high to low</option>
+      <option value="age">Age, oldest first</option>
+      <option value="multiple">Peer multiple, high to low</option>
+    </select>
+  </label>
+</nav>
+
+<main>
+  <section id="boardView">
+    <div class="board-head">
+      <h2>The board</h2>
+      <p id="boardCount" class="muted"></p>
+    </div>
+    <div class="table-wrap">
+      <table id="board">
+        <thead>
+          <tr>
+            <th class="num">#</th>
+            <th>Protocol</th>
+            <th>Chains</th>
+            <th class="num">TVL</th>
+            <th class="num">7d</th>
+            <th class="num">Age</th>
+            <th class="num">Peer ×</th>
+            <th class="num">Implied value</th>
+            <th class="bar-cell">Share of #1</th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+    <button id="more" class="more">Show the whole board</button>
+  </section>
+
+  <section id="detailView" hidden></section>
+
+  <section class="model" id="modelSection"></section>
+
+  <section class="live" id="liveSection"></section>
+</main>
+
+<footer id="foot"></footer>
+
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
